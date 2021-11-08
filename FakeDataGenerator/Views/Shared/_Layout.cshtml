@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<body>
+<header class="bg-light border-bottom shadow-lg py-2 w-100">
+    <div class="container-fluid">
+        <form class="row align-items-end" asp-action="ChangeSettings" asp-controller="Home">
+            <div class="col form-group">
+                <div class="row align-items-center">
+                    <div class="text-center w-100">
+                        <button class="btn btn-inline-primary border w-75" disabled>Region:</button>
+                    </div>
+                    <div class="text-center w-100">
+                        <select class="form-select btn btn-inline-primary border border-dark w-75" name="region">
+                            <option value="Usa" selected>USA</option>
+                            <option value="Ru">RU</option>
+                            <option value="By">BY</option>
+                            <option value="Ua">UA</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col form-group">
+                <div class="row align-items-center justify-content-center">
+                    <span class="w-50 text-left">0</span>
+                    <span class="w-50 text-right">10</span>
+                    <div class="w-100">
+                        <input class="form-range w-100" type="range" name="errorsCount" min="0" max="10" step="0.01">
+                        <input class="form-control text-center border-dark w-100" type="number" name="errorsCount" min="0" max="1000" placeholder="Errors">
+                    </div>
+                </div>
+            </div>
+            <div class="col form-group">
+                <div class="row justify-content-center">
+                    <div class="w-75">
+                        <input class="form-control text-center border-dark w-100" type="number" name="seed" min="0" placeholder="SEED" asp-controller="Home" asp-action="Index">
+                        <input class="btn btn-outline-primary text-center text-dark border-dark w-100" type="button" name="randomSeed" value="Random"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</header>
+<div class="container-fluid">
+    <main role="main">
+        @RenderBody()
+    </main>
+</div>
+<footer class="footer border-top bg-light shadow-lg position-fixed">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col text-left ml-sm-2">
+                &copy; 2021 - Fake Data Generator
+            </div>
+            <div class="col text-right mr-sm-2">
+                <a class="btn btn-outline-success border-dark">Install visible information (20 records)</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

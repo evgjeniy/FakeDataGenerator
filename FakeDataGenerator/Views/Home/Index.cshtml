@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FakeDataGenerator.Models.Record>
+@{
+    ViewData["Title"] = "Fake Data Generator";
+}
+
+<div id="scrollList">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var record in Model)
+        {
+        <tr>
+            <th scope="col">@record.RecordNumber</th>
+            <td>@record.Id</td>
+            <td>@record.FullName</td>
+            <td>@record.Address</td>
+            <td>@record.Phone</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
